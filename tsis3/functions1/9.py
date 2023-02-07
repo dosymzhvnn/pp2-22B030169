@@ -1,6 +1,6 @@
 def volume_of_a_sphere(r):
-    V = float((4 * 3,14 * (r**3))/3)
+    V = (4 * 3,14 * (r * r * r) / 3)
     print(V)
         
-r = float(input())
+r = list(map(int , input().split()))
 volume_of_a_sphere(r)

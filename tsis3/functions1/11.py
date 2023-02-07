@@ -1,4 +1,4 @@
-def palindrome(s):
+def is_palindrome(s):
     cnt = 0
     if (len(s) % 2) != 0:
         for i in range(int(len(s)+1 / 2)):
@@ -11,19 +11,8 @@ def palindrome(s):
             else:
                             print("NO") 
     else:
-        print("NO")
-    
-    
-    
-    
-        
-    # :
-
-
-                 
+        print("NO") 
             
-            
-            
-s = list(map(str , input()))
-palindrome(s)             
+s = list(map(str , input().split()))
+is_palindrome(s)             
         
