@@ -6,5 +6,5 @@ def squares(a , b):
             
 a = int(input())
 b = int(input())
-for i in f(a , b):
+for i in squares(a , b):
     print(i)

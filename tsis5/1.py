@@ -1,5 +1,5 @@
 import re
 
-a = "a0dipoufuuuabbbbbbbbd bdduwabbb"
-result = re.findall(r'([a]+[{b}]*)|[a]', a)
+a = "aa0dipoufuuuabbbbbbbbd bdduwabbb"
+result = re.findall(r'([a][{b}]*)', a)
 print(result)

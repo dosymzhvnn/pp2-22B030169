@@ -1,11 +1,11 @@
 import math
 import time
 number = int(input())
-time = int(input())
+times = int(input())
 
 
-time.sleep(time/1000)
+time.sleep(times/1000)
 sr = math.sqrt(number)
 
 
-print(f"Square root of {number} after {time} miliseconds is {sr}")
+print(f"Square root of {number} after {times} miliseconds is {sr}")
