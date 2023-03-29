@@ -6,7 +6,7 @@ height = 600
 width = 600
 
 sc = pygame.display.set_mode((height , width))
-
+pygame.display.set_caption('MICKEY MOUSE CLOCK', 'timesnewroman')
 
 def rot_center(image, angle, x, y):
     
