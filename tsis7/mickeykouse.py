@@ -1,62 +1,46 @@
-# import pygame
-
-# pygame.init()
-# screen = pygame.display.set_mode((400, 300))
-# done = True
-# dx = 30
-# dy = 30
-# screen.fill((0,0,0))
-
-# while done: 
-#         for event in pygame.event.get():
-#                 if event.type == pygame.QUIT:
-#                         done = True
-        
-        
-
-# up = pygame.pygame.key.get_pressed()[pygame.K_UP]
-# down = pygame.key.get_pressed()[pygame.K_DOWN]
-# if up:
-#         dy = -4
-# elif down:
-#         dy = +4
-
-# pygame.draw.rect(screen,(225,225,225),pygame.Rect(50,50,40,40),width=10)
-
-
-# pygame.display.flip()
-
 import pygame
+import datetime
 
 pygame.init()
-screen = pygame.display.set_mode((400, 300))
-done = False
-is_blue = True
-x = 30
-y = 30
+height = 600
+width = 600
 
-clock = pygame.time.Clock()
+sc = pygame.display.set_mode((height , width))
 
-while not done:
-        for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                        done = True
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                        is_blue = not is_blue
-        
-        pressed = pygame.key.get_pressed()
-        if pressed[pygame.K_UP]: 
-                y -= 3
-        if pressed[pygame.K_DOWN]: 
-                y += 3
-        if pressed[pygame.K_LEFT]: 
-                x -= 3
-        if pressed[pygame.K_RIGHT]:
-                x += 3
-        
-        screen.fill((0, 0, 0))
-        if is_blue: color = (0, 128, 255)
-        else: color = (255, 100, 0)
-        pygame.draw.circle(screen ,(225 , 0 , 0) , (x , y) , 25)       
-        pygame.display.flip()
-        clock.tick(60)
+
+def rot_center(image, angle, x, y):
+    
+    rotated_image = pygame.transform.rotate(image, angle)
+    new_rect = rotated_image.get_rect(center = image.get_rect(center = (x, y)).center)
+
+    return rotated_image, new_rect
+
+background = pygame.image.load('images/main_clock.png') 
+right = pygame.image.load('images/right_hand.png')
+left = pygame.image.load('images/left_hand.png')
+
+background = pygame.transform.scale(background , (600 , 600))
+right = pygame.transform.scale(right , (300 , 300))
+left = pygame.transform.scale(left , (300 , 300))
+left = pygame.transform.flip(left , 180 , 180)
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            
+    sec = datetime.datetime.now().second
+    min = datetime.datetime.now().minute
+    
+    x = (-6*min)%360
+    y = ((-1)*sec * 6)%360
+    
+    rot_right , x = rot_center(right , x , 300 , 300)
+    rot_left , y = rot_center(left , y , 300 , 300)
+    
+    sc.blit(background, (0 , 0))
+    sc.blit(rot_right , x)
+    sc.blit(rot_left , y)
+    
+    pygame.display.update()
