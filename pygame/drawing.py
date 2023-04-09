@@ -35,6 +35,41 @@ while running:
     pygame.draw.polygon(screen , (0 , 0 , 225) , ((20 , 20), (40 , 40) , (20 , 40)))
     
     
+    # Set window size
+    window_width = 800
+    window_height = 600
+    
+    # Create the window
+    window = pygame.display.set_mode((window_width, window_height))
+    
+    # Set window size
+    window_width = 800
+    window_height = 600
+    
+    # Create the window
+    window = pygame.display.set_mode((window_width, window_height))
+    
+    # Set window size
+    window_width = 800
+    window_height = 600
+    
+    # Create the window
+    window = pygame.display.set_mode((window_width, window_height))
+    
+    # Set window size
+    window_width = 800
+    window_height = 600
+    
+    # Create the window
+    window = pygame.display.set_mode((window_width, window_height))
+    
+    # Set window size
+    window_width = 800
+    window_height = 600
+    
+    # Create the window
+    window = pygame.display.set_mode((window_width, window_height))
+    
     pygame.display.flip()
     clock.tick(60)
             

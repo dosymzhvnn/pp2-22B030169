@@ -34,7 +34,7 @@ while running:
     min = datetime.datetime.now().minute
     
     x = (-6*min)%360
-    y = ((-1)*sec * 6)%360
+    y = ((-1)*sec*6)%360
     
     rot_right , x = rot_center(right , x , 300 , 300)
     rot_left , y = rot_center(left , y , 300 , 300)
