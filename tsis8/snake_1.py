@@ -7,7 +7,7 @@ WIDTH = 640
 HEIGHT = 640
 BLOCK_SIZE = 20
 global speed
-speed = 3
+speed = 10
 SQUARES = int(WIDTH/BLOCK_SIZE)
 clock = pygame.time.Clock()
 
@@ -128,27 +128,27 @@ class Score:
         self.levels = 0
         self.font = pygame.font.SysFont('monospace', 30, bold=False)
         self.speed = 10
-
-
+        
+    
     def increase(self):
         self.points += 1
-
+        
     def reset(self):
         self.points = 0
         self.levels = 0
-
+        
     def boost(self):
         if self.points % 3 == 0:
             self.levels += 1
-            self.speed += 10
-
+            self.speed += 5
+            
 
     def show(self , surface):
             lbl = self.font.render('Score:' + str(self.points) , 1 , BLACK)
             surface.blit(lbl , (5,5))
             level = self.font.render(f'Level:' + str(self.levels) , 1 , BLACK)
             surface.blit(level , ( WIDTH - 135 ,5))
-
+        
 
 def main():
 	pygame.init()
@@ -161,7 +161,7 @@ def main():
 	background = Background()
 	collision = Collision()
 	score = Score(screen)
-
+	
 
 	# MainLoop
 	while True:
@@ -199,8 +199,8 @@ def main():
 			snake.add_body()
 			score.increase()
 			score.boost()
-
-
+            
+    
 
 		# movement
 		if snake.state != "STOP":
@@ -218,7 +218,7 @@ def main():
 			snake.die()
 			food.spawn()
 			score.reset()
-
+            
 
 		clock.tick(score.speed)
 		pygame.display.update()
