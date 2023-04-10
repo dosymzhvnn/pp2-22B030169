@@ -19,30 +19,30 @@ FONT = pygame.font.Font(None, 36)
 SCORE = 0
 score = 0
 
-# class Coin(pygame.sprite.Sprite):
-#     def __init__(self):
-#         super().__init__()
-#         self.speed = 0
-#         self.image = pygame.image.load('images/coin.png')
-#         self.rect = self.image.get_rect()
-#         self.rect = self.image.get_rect()
-#         self.rect.center = (
-#         random.randint(0, WIDTH - self.rect.width),0
-#         )
+class Coin(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.speed = 0
+        self.image = pygame.image.load('images/coin.png')
+        self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect()
+        self.rect.center = (
+        random.randint(0, WIDTH - self.rect.width),0
+        )
 
-#     def draw(self, surface):
-#         surface.blit(self.image, self.rect)
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)
 
-#     def update(self):
-#         global score
-#         self.rect.y += self.speed
-#         if self.rect.y > HEIGHT:
-#             self.speed += 0
-#             self.rect.y = 0
-#             if self.rect.width < WIDTH:
-#                 self.rect.x = random.randint(0, WIDTH - self.rect.width)
-#             else:
-#                 self.rect.center = (WIDTH // 2, self.rect.height // 2)
+    def update(self):
+        global score
+        self.rect.y += self.speed
+        if self.rect.y > HEIGHT:
+            self.speed += 0
+            self.rect.y = 0
+            if self.rect.width < WIDTH:
+                self.rect.x = random.randint(0, WIDTH - self.rect.width)
+            else:
+                self.rect.center = (WIDTH // 2, self.rect.height // 2)
                 
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):

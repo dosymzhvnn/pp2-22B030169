@@ -27,7 +27,7 @@ class Enemy(pygame.sprite.Sprite):
         self.image = pygame.image.load('images/Enemy.png')
         self.rect = self.image.get_rect()
         self.rect.center = (
-            random.randrange(0, WIDTH - self.rect.width), 0
+            random.randint(0, WIDTH - self.rect.width), 0
         )
         self.score = 0
         self.cntcoin = 0
@@ -70,14 +70,15 @@ class Player(pygame.sprite.Sprite):
         if pressed[pygame.K_DOWN]:
             self.rect.y += self.speed
 
-
 class Coin(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.speed = 5
         self.image = pygame.image.load('images/coin.png')
         self.rect = self.image.get_rect()
-        self.rect.center = (random.randrange(0, WIDTH - self.rect.width), 0)
+        self.rect.center = (
+            random.randint(0, WIDTH - self.rect.width), 0
+        )
         self.scorecoin = 0
 
     def draw(self, surface):
@@ -106,8 +107,11 @@ def main():
     coins = pygame.sprite.Group()
     coins.add(coin)
 
+    pygame.mixer.music.load('musics/background.wav')
+    pygame.mixer.music.play(-1)
     while running:
         SCREEN.blit(background, (0, 0))
+       
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
