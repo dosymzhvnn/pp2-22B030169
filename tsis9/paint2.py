@@ -20,12 +20,16 @@ class GameObject:
 class Button:
     def __init__(self):
         # super().__init__() и вот это раскомментируй
+        self.rect0 = pygame.draw.rect(
+            SCREEN,
+            WHITE,
+            (WIDTH // 2 , 20, 40, 40)
+        )
         self.rect = pygame.draw.rect(
             SCREEN,
             WHITE,
             (WIDTH // 2 - 20, 20, 40, 40)
         )
-
         self.rect2 = pygame.draw.rect(
             SCREEN,
             WHITE,
@@ -48,11 +52,17 @@ class Button:
         )
 
     def draw(self):
+        self.rect0 = pygame.draw.rect(
+            SCREEN,
+            WHITE,
+            (WIDTH // 2 + 50, 20, 40, 40)
+        )
         self.rect = pygame.draw.rect(
             SCREEN,
             WHITE,
             (WIDTH // 2, 20, 40, 40)
         )
+        
         self.rect2 = pygame.draw.rect(
             SCREEN,
             WHITE,
@@ -290,6 +300,8 @@ def main():
                     current_shape = 'equilateral_triangle'
                 elif button.rect5.collidepoint(pygame.mouse.get_pos()):
                     current_shape = 'rhombus'
+                elif button.rect0.collidepoint(pygame.mouse.get_pos()):
+                    current_shape = 'pen'
                 else:
                     if current_shape == 'pen':
                         active_obj = Pen(start_pos=event.pos)
