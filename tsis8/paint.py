@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import pygame
         
 def main():
@@ -85,3 +86,5 @@ def drawLineBetween(screen, index, start, end, width, color_mode):
         pygame.draw.circle(screen, color, (x, y), width)
 
 main()
+=======
+>>>>>>> 6f0bf9f3fb6de09909270147c39e12662ea1a590

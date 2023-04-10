@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import random
 import time
 import pygame
@@ -151,3 +152,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+=======
+>>>>>>> 6f0bf9f3fb6de09909270147c39e12662ea1a590
