@@ -31,6 +31,7 @@ class Enemy(pygame.sprite.Sprite):
         )
         self.score = 0
         self.cntcoin = 0
+        self.cntcoin2 = 0
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
@@ -43,8 +44,9 @@ class Enemy(pygame.sprite.Sprite):
             self.rect.x = random.randint(0, WIDTH - self.rect.width)
             # self.rect.y = random.randint()
 
-            if self.cntcoin % 3 == 0 and self.cntcoin > 0:
+            if self.cntcoin2 % 3 == 0 and self.cntcoin2 > 0:
                 self.speed += 10
+                self.cntcoin2 = 0
 
 
 class Player(pygame.sprite.Sprite):
@@ -136,6 +138,7 @@ def main():
             weightofcoin = random.randint(0, 10)
             player.scorecoin += weightofcoin
             enemy.cntcoin += 1
+            enemy.cntcoin2 += 1
             coin.spawn()
 
         if pygame.sprite.spritecollideany(player, enemies):
