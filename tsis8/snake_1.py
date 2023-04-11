@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import pygame
 import math , random
 import time , sys
@@ -225,5 +224,3 @@ def main():
 		pygame.display.update()
 
 main()
-=======
->>>>>>> 6f0bf9f3fb6de09909270147c39e12662ea1a590
