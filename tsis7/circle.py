@@ -43,7 +43,7 @@ while running:
 
     pygame.draw.circle(screen ,(225 , 0 , 0) , (x , y) , radius)
     pygame.display.flip()
-    clock.tick(60)   
+    clock.tick(30)   
                
      
      

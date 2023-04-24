@@ -92,11 +92,11 @@ class Food:
     def __init__(self):
         self.color = RED
         self.spawn()
-        self.time = 100
+        self.time = 50
         
     def update(self):
         if self.time == 0:
-            self.time = 100
+            self.time = 50
         else:
             self.time -= 1
         if self.time == 0:
@@ -223,7 +223,7 @@ def main():
             snake.add_body()
             score.increase()
             score.boost()
-            food.time = 100
+            food.time = 50
         else:
             food.update()
         
